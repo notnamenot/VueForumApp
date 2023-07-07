@@ -7,8 +7,9 @@
             <!-- <a :href="`/threads/${thread.id}`">{{ thread.title }}</a> -->
         </p>
         <p class="text-faded text-xsmall">
-            By <a href="#">{{userById(thread.userId).name}}</a>, {{ thread.publishedAt }}.
+            By <a href="#">{{userById(thread.userId).name}}</a>, <BaseDate :timestamp="thread.publishedAt"/>.
         </p>
+
     </div>
 
     <div class="activity">
@@ -22,7 +23,9 @@
             <p class="text-xsmall">
                 <a href="#">{{userById(thread.userId).name}}</a>
             </p>
-            <p class="text-xsmall text-faded"> {{ thread.publishedAt }}</p>
+            <p class="text-xsmall text-faded"> 
+                <BaseDate :timestamp="thread.publishedAt"/>
+            </p>
         </div>
     </div>  
 </template>
@@ -56,6 +59,7 @@ export default {
 <script setup>
 import sourceData from '@/data.json'  
 import { reactive } from 'vue';
+import BaseDate from '@/components/BaseDate.vue'
 
 // const props = 
 defineProps({

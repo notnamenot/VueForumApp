@@ -2,6 +2,7 @@
   <div v-if="thread" class="col-large push-top">
     <h1>{{thread.title}}</h1> 
     <PostList :posts="threadPosts"/>   
+    <PostEditor @save="addPost"/><!-- @save- name of event in child -->
   </div>
   <!-- <div v-else class="col-full text-center">
     <h1>Thread not found</h1>
@@ -12,31 +13,43 @@
   <script>
   import sourceData from '@/data.json' 
   import PostList from '@/components/PostList.vue'
+  import PostEditor from '@/components/PostEditor.vue'
   export default {  
-        name: 'ThreadShow', // so in browser component is not anonymus
-        components: {
-            PostList
-        },  
-        props: {
-            id: {
-                type: String, 
-                required: true 
-            }
-        },
-        data(){
-          return {
-              threads: sourceData.threads,
-              posts: sourceData.posts,
-          }
-      },
-      computed: {
+    name: 'ThreadShow', // so in browser component is not anonymous
+    components: {
+        PostList,
+        PostEditor
+    },  
+    props: {
+        id: {
+            type: String, 
+            required: true 
+        }
+    },
+    data(){
+        return {
+            threads: sourceData.threads,
+            posts: sourceData.posts,
+        }
+    },
+    computed: {
         thread() {
             return this.threads.find(thread => thread.id === this.id ) // === this.$route.params.id - prosto z urla   
         },
         threadPosts() {
             return this.posts.filter(post => post.threadId === this.id)
         }
-      }
+    },
+    methods: {
+        addPost(eventData){ 
+            const post = {
+                ...eventData.post, //... spread operator
+                threadId: this.id
+            }
+            this.posts.push(post) // this instead of sourceDatato change data reactively on site  
+            this.thread.posts.push(post.id)
+        }
+    }
   }
   </script>
   
