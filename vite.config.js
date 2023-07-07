@@ -16,6 +16,8 @@ export default defineConfig({
       //   ElementPlusResolver(),
       //   VantResolver(),
       // ],
+      // dirs: ['src/components', 'src/views'], //TODO check if possible
+
     })
   ],
   resolve: {

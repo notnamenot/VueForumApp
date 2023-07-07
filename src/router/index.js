@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import PageHome from '@/views/PageHome.vue'
 import ThreadShowView from '@/views/ThreadShowView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
+import ForumView from '@/views/ForumView.vue'
 import sourceData from '@/data.json'  
 
 const router = createRouter({
@@ -21,6 +22,12 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue')
+    },
+    {
+      path: '/forums/:id',
+      name: 'forum',
+      component: ForumView,
+      props: true
     },
     {
       path: '/threads/:id',

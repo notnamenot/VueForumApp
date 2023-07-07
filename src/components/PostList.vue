@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import PostListItem from './PostListItem.vue';
+// import PostListItem from './PostListItem.vue'; // not necessary because we have plugin unplugin-vue-components
 export default {
     props: {
         posts: {
@@ -18,7 +18,7 @@ export default {
             required: true 
         }
     },
-    components: {PostListItem}
+    // components: {PostListItem}
 }
 </script>
 
