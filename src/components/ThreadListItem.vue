@@ -59,7 +59,7 @@ export default {
 <script setup>
 import sourceData from '@/data.json'  
 import { reactive } from 'vue';
-import BaseDate from '@/components/BaseDate.vue'
+// import BaseDate from '@/components/BaseDate.vue' //registered globally
 
 // const props = 
 defineProps({

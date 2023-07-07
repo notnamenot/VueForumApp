@@ -26,10 +26,10 @@
 
 <script>
 import sourceData from '@/data.json' 
-import BaseDate from '@/components//BaseDate.vue'
+// import BaseDate from '@/components//BaseDate.vue' //registered globally
 
 export default {
-    components: {BaseDate},
+    // components: {BaseDate}, //registered globally
     props: {
         post: {
             type: Object,
