@@ -4,6 +4,7 @@ import PageHome from '@/views/PageHome.vue'
 import ThreadShowView from '@/views/ThreadShowView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
 import ForumView from '@/views/ForumView.vue'
+import CategoryView from '@/views/CategoryView.vue'
 import sourceData from '@/data.json'  
 
 const router = createRouter({
@@ -27,6 +28,12 @@ const router = createRouter({
       path: '/forums/:id',
       name: 'forum',
       component: ForumView,
+      props: true
+    },
+    {
+      path: '/categories/:id',
+      name: 'category',
+      component: CategoryView,
       props: true
     },
     {

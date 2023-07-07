@@ -1,7 +1,8 @@
 <template>
 <h1>Welcome to the Forum</h1>
 <!-- <ThreadList :threads="threads"/> -->
-<ForumList :forums="forums"/>
+<!-- <ForumList :forums="forums"/> -->
+<CategoryList :categories="categories"/>
 </template>
 
 <script>
@@ -14,7 +15,8 @@ export default {
     data(){
         return {
             // threads: sourceData.threads
-            forums: sourceData.forums
+            // forums: sourceData.forums
+            categories: sourceData.categories
         }
     }    
 }
